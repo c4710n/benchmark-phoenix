@@ -377,3 +377,4 @@ But, please calm down, just like Saša Jurić said:
 
 - [Benchmarking Phoenix on Digital Ocean](https://web.archive.org/web/20210206120854/https://www.cogini.com/blog/benchmarking-phoenix-on-digital-ocean/)
 - [Observing low latency in Phoenix with wrk](https://web.archive.org/web/20210207034532/https://www.theerlangelist.com/article/phoenix_latency)
+- [Comparative Benchmark Numbers @ Rackspace](https://gist.github.com/omnibs/e5e72b31e6bd25caf39a)
