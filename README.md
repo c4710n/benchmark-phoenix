@@ -77,6 +77,8 @@ Total online memory:       1G
 
 # Tuning
 
+## Tuning OS
+
 Tune Machine A with following command:
 
 ```sh
@@ -89,6 +91,28 @@ $ sysctl -w net.ipv4.tcp_wmem='1024 4096 16384'
 $ sysctl -w net.ipv4.ip_local_port_range='1024 65536'
 $ sysctl -w net.core.rmem_max=16384
 $ sysctl -w net.core.wmem_max=16384
+```
+
+## Tuning application
+
+Enable `max_keepalive` so that we run multiple requests on the same connection:
+
+```elixir
+config :hello, HelloWeb.Endpoint,
+  http: [
+    port: String.to_integer(System.get_env("PORT") || "4000"),
+    transport_options: [socket_opts: [:inet6]],
+    protocol_options: [max_keepalive: 5_000_000]  # added
+  ],
+  secret_key_base: secret_key_base
+```
+
+Suppress logging request:
+
+> Too much logging has a huge impact in performance.
+
+```elixir
+config :logger, level: :warn
 ```
 
 # Benchmark Results with tuning
@@ -170,7 +194,3 @@ Transfer/sec:   8.15MB
 As you can see, when runnig the benchmark, machine A is in high load.
 
 ![machine status](./screenshot/machine-status.png)
-
-## TODO
-
-- Enable `max_keepalive` so that we run multiple requests on the same connection.
