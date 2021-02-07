@@ -2,4 +2,4 @@
 
 ENDPOINT="http://IP_A:PORT"
 
-wrk -t100 -c100 -d600s --latency -s wrk-report.lua $ENDPOINT
+wrk -t100 -c100 -d60s --latency -s wrk-report.lua $ENDPOINT
