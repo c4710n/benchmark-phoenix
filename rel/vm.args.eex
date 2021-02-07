@@ -7,5 +7,8 @@
 ## Increase number of concurrent ports/sockets
 +Q 65536
 
+## Set async threads
++A 16
+
 ## Tweak GC to run more often
 ##-env ERL_FULLSWEEP_AFTER 10
