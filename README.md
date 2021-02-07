@@ -4,7 +4,6 @@
 - [Dependencies](#dependencies)
 - [What to benchmark?](#what-to-benchmark)
 - [Machine Specs](#machine-specs)
-- [Running in Machine B](#running-in-machine-b)
 - [Tuning](#tuning)
 - [Benchmark Results with tuning](#benchmark-results-with-tuning)
 
@@ -30,8 +29,9 @@ This benchmark uses two **Vultr $5/mo** machines in the same data center:
 
 ## Network Latency
 
+Testing network latency from Machine B:
+
 ```text
-# Running in Machine B
 $ ping IP_A
 PING IP_A (IP_A) 56(84) bytes of data.
 64 bytes from 141.164.47.76: icmp_seq=1 ttl=61 time=0.413 ms
@@ -167,10 +167,10 @@ Transfer/sec:   8.15MB
 
 ## Machine status
 
-As you can see, the machine running this project is in high pressure.
+As you can see, when runnig the benchmark, machine A is in high load.
 
 ![machine status](./screenshot/machine-status.png)
 
 ## TODO
 
-enable `max_keepalive` so that we run multiple requests on the same connection.
+- Enable `max_keepalive` so that we run multiple requests on the same connection.
