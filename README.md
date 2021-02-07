@@ -3,7 +3,7 @@
 # TOC <!-- :TOC_1: -->
 - [Dependencies](#dependencies)
 - [What to benchmark?](#what-to-benchmark)
-- [Machine Specs](#machine-specs)
+- [Dedicated Machines](#dedicated-machines)
 - [Tuning](#tuning)
 - [Building a release](#building-a-release)
 - [Benchmark Results with tuning](#benchmark-results-with-tuning)
@@ -20,7 +20,7 @@
 
 The response time of a request in a standard MVC web application which has no database call.
 
-# Machine Specs
+# Dedicated Machines
 
 This benchmark uses two **Vultr $5/month** machines in the same data center:
 
@@ -365,9 +365,9 @@ As we icreasing the number of connections, the RPS begin to decrease. That means
 
 # Conclusion
 
-A **Vultr $5/month** machine can handle 4.5k request per second, which is impressive and exciting.
+A **Vultr $5/month** machine can handle `4.5k request / second`, which is impressive and exciting.
 
-I think, a phoenix server combined with a CDN is very sufficient for most startup projects.
+I think, a phoenix server combined with CDN would be sufficient for most startup projects.
 
 But, please calm down, just like Saša Jurić said:
 
