@@ -5,6 +5,7 @@
 - [What to benchmark?](#what-to-benchmark)
 - [Machine Specs](#machine-specs)
 - [Tuning](#tuning)
+- [Building a release](#building-a-release)
 - [Benchmark Results with tuning](#benchmark-results-with-tuning)
 
 # Dependencies
@@ -93,6 +94,15 @@ $ sysctl -w net.core.rmem_max=16384
 $ sysctl -w net.core.wmem_max=16384
 ```
 
+## Tuning BEAM
+
+Edit `rel/vm.args.eex`:
+
+```text
+## Increase number of concurrent ports/sockets
++Q 65536
+```
+
 ## Tuning application
 
 Enable `max_keepalive` so that we run multiple requests on the same connection:
@@ -113,6 +123,25 @@ Suppress logging request:
 
 ```elixir
 config :logger, level: :warn
+```
+
+# Building a release
+
+> [Why releases?](https://hexdocs.pm/mix/1.11.3/Mix.Tasks.Release.html#module-why-releases)
+
+```sh
+export LANG=en_US.UTF-8
+export MIX_ENV=prod
+
+mix local.hex --force
+mix local.rebar --force
+
+mix deps.get --only prod
+mix compile
+
+mix phx.digest
+
+mix release
 ```
 
 # Benchmark Results with tuning
