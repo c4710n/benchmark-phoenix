@@ -365,6 +365,15 @@ As we icreasing the number of connections, the RPS begin to decrease. That means
 
 # Conclusion
 
+## About Performance
+
+As we have seen, the performance is predictable, just like Saša Jurić said:
+
+> The goal of the platform isn’t to squeeze out as many requests per second as possible, but to keep performance predictable and within limits. The level of performance your Erlang system achieves on a given machine shouldn’t degrade significantly, meaning there shouldn’t be unexpected system hiccups due to, for example, the garbage collector kicking in. Furthermore, as explained earlier, long-running BEAM processes don’t block or significantly impact the rest of the system. Finally, as the load increases, BEAM can use as many hardware resources as possible. If the hardware capacity isn’t enough, you can expect graceful system degradation — requests will take longer to process, but the system won’t be paralyzed. This is due to the preemptive nature of the BEAM scheduler, which performs frequent context switches that keep the system ticking and favors short-running processes. And of course, you can address higher system demand by adding more hardware.
+> -- Elixir in Action, 2nd Edition
+
+## About Benchmark
+
 A **Vultr $5/month** machine can handle `4.5k request / second`, which is impressive and exciting.
 
 I think, a phoenix server combined with CDN would be sufficient for most startup projects.
